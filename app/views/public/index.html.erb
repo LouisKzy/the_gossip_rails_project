@@ -1,0 +1,11 @@
+<% if @user.present?%>
+  <h2> Page gossip de <%= @user.first_name%>:</h2>
+  <% @user.gossips.each do |gossip| %>
+    <div class="gossip">
+      <p> titre : <%= gossip.title%></p>
+      <p> contenue :<%= gossip.content%></p>
+    </div>
+  <% end %>
+<% else %>
+  <p> Utilisateur non trouvé </p>
+<% end %>        
