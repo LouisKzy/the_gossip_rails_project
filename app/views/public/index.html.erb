@@ -1,11 +1,15 @@
-<% if @user.present?%>
-  <h2> Page gossip de <%= @user.first_name%>:</h2>
-  <% @user.gossips.each do |gossip| %>
-    <div class="gossip">
-      <p> titre : <%= gossip.title%></p>
-      <p> contenue :<%= gossip.content%></p>
-    </div>
-  <% end %>
+<% if @user.present? %>
+  <h2 class="text-center font-weight-bold border p-2 mb-4">Page gossip de <%= @user.first_name %>:</h2>
+  <div class="d-flex flex-wrap justify-content-around">
+    <% @user.gossips.each do |gossip| %>
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= gossip.title %></h5>
+          <p class="card-text">Contenu : <%= gossip.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% else %>
-  <p> Utilisateur non trouvé </p>
-<% end %>        
+  <p class="text-center">Utilisateur non trouvé</p>
+<% end %>
